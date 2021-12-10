@@ -39,21 +39,18 @@ export default class ConcretePuzzle extends Puzzle {
 
   public getFirstExpectedResult(): string {
     let count = 0;
-    const test = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
-    test.reduce((prev, curr): number => {
-
-      console.log(curr, prev);
-      
-
+    const numbers = this.input.split('\n').map((l) => parseInt(l));
+    numbers.reduce((prev, curr): number => {
       if (curr > prev) {
         count = count + 1;
       }
       return curr;
     });
-    return `day 1 solution 1 ==> ${count}`;
+  
+    return `day 1 solution 1 ${count}`;
   }
   public getSecondExpectedResult(): string {
-    const numbers = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263];
+    const numbers = this.input.split('\n').map((l) => parseInt(l));
     const size = 3;
 
     let count = 0;
